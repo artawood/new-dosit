@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dosit Thai Cuisine</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-gold: #fcce9c;
+      --brand-brown: #4b2e14;
+    }
+
+    body {
+      background-color: #000;
+      font-family: "Inter", system-ui, sans-serif;
+    }
+
+    /* Background hero */
+    .cover-container {
+      position: relative;
+      background: url("https://dositthai.com/images/slide_1.jpg") center / cover no-repeat;
+      overflow: hidden;
+    }
+
+    .cover-container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.75));
+      backdrop-filter: blur(1.5px);
+      z-index: 0;
+    }
+
+    .cover-container > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Brand bar */
+    .brand-bar {
+      background: var(--brand-gold);
+      padding: 1.5rem 0 1.25rem;
+      border-bottom: 3px solid rgba(75,46,20,.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .logo img {
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .nav-masthead .nav-link {
+      color: var(--brand-brown);
+      font-weight: 800;
+      margin: 0 .75rem;
+      padding-bottom: .25rem;
+      border-bottom: 3px solid transparent;
+      letter-spacing: .04em;
+    }
+
+    .nav-masthead .nav-link:hover {
+      border-bottom-color: rgba(75,46,20,.4);
+    }
+
+    .nav-masthead .nav-link.active {
+      border-bottom-color: var(--brand-brown);
+    }
+
+    /* Hero */
+    .hero {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      color: var(--brand-gold);
+      text-shadow: 0 8px 40px rgba(0,0,0,.8);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #f5e6c8;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .btn-brand {
+      background-color: var(--brand-gold);
+      color: var(--brand-brown);
+      font-weight: 800;
+      letter-spacing: .04em;
+      border-radius: 999px;
+      padding: 1rem 3rem;
+      border: none;
+      box-shadow: 0 8px 25px rgba(252,206,156,.5);
+      transition: all .25s ease;
+    }
+
+    .btn-brand:hover {
+      background-color: #f5c287;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(252,206,156,.6);
+    }
+
+    .cta-note {
+      display: block;
+      margin-top: 1rem;
+      font-size: .95rem;
+      color: rgba(245, 230, 200, .9);
+      letter-spacing: .02em;
+    }
+
+    footer {
+      color: rgba(255,255,255,.6);
+      background: linear-gradient(transparent, rgba(0,0,0,.6));
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+
+<body class="d-flex h-100 text-center">
+
+<div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+
+  <!-- Brand Bar -->
+  <header class="brand-bar">
+    <div class="container">
+      <div class="d-flex flex-column align-items-center">
+        <div class="logo mb-2">
+          <a href="index.html">
+            <img src="https://dositthai.com/images/logo.png" alt="Dosit Thai Cuisine">
+          </a>
+        </div>
+
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" href="https://dositthaica.smiledining.com/">Menu & Online Order</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="hero">
+    <div>
+      <h1>Welcome to Heaven</h1>
+      <p>
+        The path to great Thai food and warm hospitality.
+      </p>
+
+      <a href="https://dositthaica.smiledining.com/"
+         class="btn btn-brand btn-lg">
+        Menu & Online Order
+      </a>
+
+      <span class="cta-note">
+        We now offer delivery for your convenience
+      </span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="pb-4">
+    <small>
+      Designed by <a href="https://pantipa.com/" class="text-white">Pantipa</a><br>
+      © <span id="year"></span> Jakkrid, Inc. All rights reserved.
+    </small>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
