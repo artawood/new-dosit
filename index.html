@@ -57,13 +57,40 @@
       display: block;
     }
 
+    /* --- Swipeable nav on mobile --- */
+    .nav-scroll {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+    .nav-scroll::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+    .nav-masthead {
+      flex-wrap: nowrap;          /* stop wrapping */
+      white-space: nowrap;        /* keep on one line */
+      justify-content: center;    /* center on wider screens */
+      gap: 1.25rem;               /* spacing between links */
+      padding: .25rem .25rem;
+      margin: 0;
+    }
+
+    /* On small screens, align left so swipe feels natural */
+    @media (max-width: 576px) {
+      .nav-masthead {
+        justify-content: flex-start;
+        padding-left: .5rem;
+        padding-right: .5rem;
+      }
+    }
+
     .nav-masthead .nav-link {
       color: var(--brand-brown);
       font-weight: 800;
-      margin: 0 .75rem;
       padding-bottom: .25rem;
       border-bottom: 3px solid transparent;
       letter-spacing: .04em;
+      margin: 0; /* we use gap instead */
     }
 
     .nav-masthead .nav-link:hover {
@@ -148,11 +175,18 @@
           </a>
         </div>
 
-        <nav class="nav nav-masthead justify-content-center">
-          <a class="nav-link" href="https://dositthaica.smiledining.com/">Menu & Online Order</a>
-          <a class="nav-link" href="about.html">About</a>
-          <a class="nav-link" href="contact.html">Contact</a>
-        </nav>
+        <!-- Swipeable Nav Wrapper -->
+        <div class="nav-scroll">
+          <nav class="nav nav-masthead">
+            <a class="nav-link text-nowrap" href="https://dositthaica.smiledining.com/" target="_blank" rel="noopener noreferrer">Menu & Online Order</a>
+            <a class="nav-link text-nowrap" href="about.html">About</a>
+            <a class="nav-link text-nowrap" href="contact.html">Contact</a>
+            <!-- Add more later if needed:
+            <a class="nav-link text-nowrap" href="gallery.html">Gallery</a>
+            -->
+          </nav>
+        </div>
+
       </div>
     </div>
   </header>
