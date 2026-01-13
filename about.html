@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About • Dosit Thai Cuisine</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -31,28 +30,62 @@
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
-    /* Force logo size to match homepage */
     .logo img {
-    max-width: 260px;
-    width: 100%;
-    height: auto;
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
+    /* --- Swipeable nav --- */
+    .nav-scroll {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-scroll::-webkit-scrollbar { display: none; }
+
+    .nav-masthead {
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      justify-content: center;
+      gap: 1.25rem;
+      padding: .25rem .25rem;
+      margin: 0;
+    }
+
+    @media (max-width: 576px) {
+      .nav-masthead {
+        justify-content: flex-start;
+        padding-left: .5rem;
+        padding-right: .5rem;
+      }
+    }
 
     .nav-masthead .nav-link {
       color: var(--brand-brown);
       font-weight: 800;
-      margin: 0 .75rem;
+      padding-bottom: .25rem;
       border-bottom: 3px solid transparent;
+      letter-spacing: .04em;
+      margin: 0;
     }
-    .nav-masthead .nav-link.active { border-bottom-color: var(--brand-brown); }
+
+    .nav-masthead .nav-link:hover {
+      border-bottom-color: rgba(75,46,20,.4);
+    }
+
+    .nav-masthead .nav-link.active {
+      border-bottom-color: var(--brand-brown);
+    }
 
     /* Hero */
     .page-hero {
-      background: url("https://dositthai.com/images/slide_1.jpg") center/cover no-repeat;
+      position: relative;
+      background: url("https://dositthai.com/images/about.jpg") center / cover no-repeat;
       padding: 5rem 1rem;
       text-align: center;
-      position: relative;
     }
     .page-hero::before {
       content:"";
@@ -67,9 +100,16 @@
       font-family: "Playfair Display", serif;
       color: var(--brand-gold);
       font-size: 3.5rem;
+      text-shadow: 0 8px 40px rgba(0,0,0,.85);
+      margin-bottom: .5rem;
     }
-    .page-hero p { color: var(--cream); }
+    .page-hero p {
+      color: var(--cream);
+      max-width: 650px;
+      margin: 0 auto;
+    }
 
+    /* Content cards */
     .card-brand {
       background: rgba(255,255,255,.03);
       border: 1px solid rgba(252,206,156,.15);
@@ -79,14 +119,63 @@
       margin-bottom: 2rem;
     }
 
-    .card-brand h2 { color: var(--brand-gold); font-family: "Playfair Display", serif; }
+    .card-brand h2 {
+      color: var(--brand-gold);
+      font-family: "Playfair Display", serif;
+      margin-bottom: 1rem;
+    }
 
+    /* Chef image */
+    .chef-photo {
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 1rem;
+      border: 1px solid rgba(252,206,156,.25);
+      box-shadow: 0 12px 30px rgba(0,0,0,.45);
+    }
+
+    /* Brand button */
     .btn-brand {
       background-color: var(--brand-gold);
       color: var(--brand-brown);
       font-weight: 800;
+      letter-spacing: .02em;
       border-radius: 999px;
-      padding: 1rem 2.5rem;
+      padding: .8rem 1.4rem;
+      border: none;
+      box-shadow: 0 8px 25px rgba(252,206,156,.25);
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+    .btn-brand:hover {
+      background-color: #f5c287;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(252,206,156,.35);
+      color: var(--brand-brown);
+    }
+
+    /* Press cards */
+    .press-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(252,206,156,.18);
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .press-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.45);
+    }
+
+    .press-logo {
+      max-width: 140px;
+      max-height: 60px;
+      width: 100%;
+      object-fit: contain;
+      filter: brightness(1.1) contrast(1.05);
     }
 
     footer {
@@ -99,22 +188,25 @@
 
 <body>
 
-<!-- Brand Bar -->
-  <header class="brand-bar">
-    <div class="container">
-      <div class="d-flex flex-column align-items-center">
-        <div class="logo mb-2">
-          <a href="index.html"><img src="https://dositthai.com/images/logo.png" alt="Dosit Thai Cuisine"></a>
-        </div>
+<header class="brand-bar">
+  <div class="container">
+    <div class="d-flex flex-column align-items-center">
+      <div class="logo mb-2">
+        <a href="index.html">
+          <img src="https://dositthai.com/images/logo.png" alt="Dosit Thai Cuisine">
+        </a>
+      </div>
 
-        <nav class="nav nav-masthead justify-content-center">
-          <a class="nav-link" href="https://dositthaica.smiledining.com/">Menu & Online Order</a>
-          <a class="nav-link active" href="about.html">About</a>
-          <a class="nav-link" href="contact.html">Contact</a>
+      <div class="nav-scroll">
+        <nav class="nav nav-masthead">
+          <a class="nav-link text-nowrap" href="https://dositthaica.smiledining.com/">Menu & Online Order</a>
+          <a class="nav-link text-nowrap active" href="about.html">About</a>
+          <a class="nav-link text-nowrap" href="contact.html">Contact</a>
         </nav>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
 <section class="page-hero">
   <h1>About Dosit Thai Cuisine</h1>
@@ -123,34 +215,66 @@
 
 <section class="container py-5">
 
+  <!-- Our Story -->
   <div class="card-brand">
     <h2>Our Story</h2>
-    <p>
+    <p class="mb-0">
       Since our opening in 2009, we have strived to deliver the best quality in our food and our service.
-      "Dosit" in Thai means heavenly, and we have worked to translate that meaning into a unique experience
-      for our restaurant guest. Located in the quiet wilderness of Walnut Creek, you will find peace and
-      tranquility while enjoying our traditional Thai cuisine made from the freshest ingredients.
+      "Dosit" in Thai means heavenly, and we have worked to translate that meaning into a unique experience for
+      our restaurant guest. Located in the quiet wilderness of Walnut Creek, you will find peace and tranquility
+      while enjoying our traditional Thai cuisine made from the freshest ingredients.
     </p>
   </div>
 
+  <!-- Meet Our Chef -->
   <div class="card-brand">
-    <h2>Meet Our Chef</h2>
-    <p>
-      Jakkrid Laongsuwan, our chef, had been in the restaurant industry for almost 15 years. He had worked
-      as executive chef in many 5 star resorts in Thailand, including the famous Dusit Thani Hotel and Resort
-      in Bangkok, the capital city. Mr. Laongsuwan had spent 10 years perfecting the balance between the color
-      and taste in his creations. His exemplary culinary experience will be sure to take your taste buds on a
-      heavenly ride.
-    </p>
+    <div class="row align-items-center g-4">
+      <div class="col-md-4 text-center">
+        <img src="https://dositthai.com/images/chef.png" alt="Chef Jakkrid Laongsuwan" class="chef-photo">
+      </div>
+      <div class="col-md-8">
+        <h2>Meet Our Chef</h2>
+        <p class="mb-0">
+          Jakkrid Laongsuwan, our chef, had been in the restaurant industry for almost 15 years. He had worked
+          as executive chef in many 5 star resorts in Thailand, including the famous Dusit Thani Hotel and Resort in Bangkok,
+          the capital city. Mr. Laongsuwan had spent 10 years perfecting the balance between the color and taste in his
+          creations. His exemplary culinary experience will be sure to take your taste buds on a heavenly ride.
+        </p>
+      </div>
+    </div>
   </div>
 
+  <!-- Press & Reviews -->
   <div class="card-brand">
-    <h2>Press & Reviews</h2>
-    <ul>
-      <li><a href="pdf/diablo-magazine-review.pdf" class="text-white">Diablo Magazine</a></li>
-      <li><a href="pdf/contra-costa-times-review.pdf" class="text-white">Contra Costa Times</a></li>
-      <li><a href="pdf/rossmoor-news-review.pdf" class="text-white">Rossmoor News</a></li>
-    </ul>
+    <h2 class="mb-4">Press & Reviews</h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="press-card h-100 text-center">
+          <img src="https://dositthai.com/images/diablo_review.jpg" class="press-logo">
+          <h5 class="mt-3" style="color: var(--brand-gold); font-family: 'Playfair Display', serif;">Diablo Magazine</h5>
+          <a href="https://dositthai.com/pdf/review_1.pdf" target="_blank" class="btn btn-brand btn-sm">Read Review</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="press-card h-100 text-center">
+          <img src="https://dositthai.com/images/contra_review.jpg" class="press-logo">
+          <h5 class="mt-3" style="color: var(--brand-gold); font-family: 'Playfair Display', serif;">Contra Costa Times</h5>
+          <a href="https://dositthai.com/pdf/review_2.pdf" target="_blank" class="btn btn-brand btn-sm">Read Review</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="press-card h-100 text-center">
+          <img src="https://dositthai.com/images/rossmoor_review.jpg" class="press-logo">
+          <h5 class="mt-3" style="color: var(--brand-gold); font-family: 'Playfair Display', serif;">Rossmoor News</h5>
+          <a href="https://dositthai.com/pdf/review_3.pdf" target="_blank" class="btn btn-brand btn-sm">Read Review</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 
 </section>
@@ -158,14 +282,14 @@
 <footer>
   <small>
     Designed by <a href="https://pantipa.com/" class="text-white">Pantipa</a><br>
-    © <span id="year"></span> Dosit Thai Cuisine. All rights reserved.
+    © <span id="year"></span> Jakkrid, Inc. All rights reserved.
   </small>
 </footer>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
