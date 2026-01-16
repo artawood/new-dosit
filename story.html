@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Story • Dosit Thai Cuisine</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand-gold:#fcce9c;
+      --brand-brown:#4b2e14;
+      --ink:#2b1a0f;
+    }
+
+    /* Base */
+    body{
+      background:#ffffff;
+      font-family:"Inter", system-ui, sans-serif;
+      color:var(--ink);
+    }
+
+    /* Transparent header over hero (same as index) */
+    .site-header{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:10;
+      padding:1.1rem 0;
+      background:transparent;
+    }
+
+    .site-header .logo img{
+      max-width:220px;
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    /* Desktop nav */
+    .nav-desktop{
+      flex-wrap:nowrap;
+      white-space:nowrap;
+      gap:2rem;
+    }
+
+    .nav-desktop .nav-link{
+      font-family:"Inter Tight", system-ui, sans-serif;
+      color:#ffffff;
+      font-weight:600;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      padding:0;
+      border-bottom:2px solid transparent;
+    }
+    .nav-desktop .nav-link:hover{
+      border-bottom-color:rgba(255,255,255,.7);
+    }
+
+    /* Mobile hamburger */
+    .nav-toggle{
+      border:0;
+      background:transparent;
+      color:#fff;
+      padding:.5rem;
+      line-height:1;
+    }
+    .nav-toggle:focus{
+      outline:2px solid rgba(255,255,255,.35);
+      outline-offset:4px;
+      border-radius:.5rem;
+    }
+
+    /* Hero */
+    .hero-banner{
+      position:relative;
+      min-height:52vh;
+      background:url("https://images.pexels.com/photos/4253312/pexels-photo-4253312.jpeg") center / cover no-repeat;
+      display:grid;
+      place-items:center;
+      padding:8rem 1rem 4rem;
+      text-align:center;
+    }
+
+    .hero-banner::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.7));
+    }
+
+    .hero-banner h1{
+      position:relative;
+      font-family:"Playfair Display", serif;
+      font-size:clamp(3.2rem, 6vw, 5rem);
+      color:#ffffff;
+      letter-spacing:.02em;
+      text-shadow:0 12px 60px rgba(0,0,0,.75);
+      margin:0;
+    }
+
+    /* Story section */
+    .story-wrap{
+      padding:5rem 1rem 4rem;
+    }
+
+    .story-kicker{
+      font-family:"Inter Tight", system-ui, sans-serif;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:600;
+      color:var(--brand-brown);
+      margin-bottom:.75rem;
+    }
+
+    .story-highlight{
+      font-family:"Playfair Display", serif;
+      font-size:clamp(1.8rem,2.5vw,2.4rem);
+      color:var(--brand-brown);
+      line-height:1.25;
+      margin:0;
+    }
+
+    .story-body{
+      font-size:1.1rem;
+      line-height:1.9;
+      color:#4b2e14;
+    }
+
+/* Fullscreen modal styling */
+    .menu-modal .modal-content{
+      background:#ffffff;
+      border:0;
+      border-radius:0;
+      min-height:100vh;
+    }
+
+    .menu-modal .modal-header{
+      border:0;
+      padding:1.25rem 1.5rem;
+    }
+
+    .menu-modal .btn-close{
+      opacity:1;
+    }
+
+    .menu-modal .modal-title{
+      font-family:"Playfair Display", serif;
+      color:var(--brand-brown);
+      font-weight:700;
+    }
+
+    .menu-modal .modal-body{
+      display:grid;
+      place-items:center;
+      padding:2rem 1.5rem 3rem;
+    }
+
+    .menu-links{
+      width:min(520px, 100%);
+      display:grid;
+      gap:2rem;
+      text-align:center;
+    }
+
+    .menu-links a{
+      font-family:"Inter Tight", system-ui, sans-serif;
+      font-size:1.15rem;
+      text-decoration:none;
+      color:var(--brand-brown);
+      font-weight:600;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      padding:0;
+      background:none;
+      border:0;
+    }
+
+    .menu-links a:hover{
+      background:rgba(75,46,20,.16);
+      transform:translateY(-2px);
+      color:var(--brand-brown);
+    }
+
+    .menu-footnote{
+      margin-top:1.25rem;
+      color:rgba(75,46,20,.75);
+      font-size:.95rem;
+    }
+
+    /* Footer */
+    footer{
+      background:#faf7f2;
+      color:#6b4a2d;
+      padding:2rem 1rem;
+      text-align:center;
+    }
+
+    /* Mobile spacing */
+    @media (max-width: 767.98px){
+      .story-wrap{ padding:3.5rem 1rem 3rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container-fluid px-4">
+      <div class="d-flex align-items-center justify-content-between">
+
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <img src="images/dosit-logo-white.png" alt="Dosit Thai Cuisine">
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="nav nav-desktop d-none d-md-flex">
+          <a class="nav-link" href="https://dositthaica.smiledining.com/">Order</a>
+          <a class="nav-link" href="gallery.html">Gallery</a>
+          <a class="nav-link active" href="story.html" aria-current="page">Story</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+
+        <!-- Mobile hamburger -->
+        <button
+          class="nav-toggle d-md-none"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#mobileMenu"
+          aria-label="Open menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+            <path fill-rule="evenodd" d="M2.5 12.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 4h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-banner">
+    <h1>Story</h1>
+  </section>
+
+  <!-- Content -->
+  <main class="story-wrap">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+
+        <!-- Left column (1/3) -->
+        <div class="col-lg-4">
+          <div class="story-kicker">Since 2009</div>
+          <p class="story-highlight">
+            Delivering the best quality and service in Walnut Creek since 2009.
+          </p>
+        </div>
+
+        <!-- Right column (2/3) -->
+        <div class="col-lg-8">
+          <div class="story-body">
+            <p>
+              Since our opening in 2009, we have strived to deliver the best quality in our food and our service.
+              “Dosit” in Thai means heavenly, and we have worked to translate that meaning into a unique experience
+              for our restaurant guest. Located in the quiet wilderness of Walnut Creek, you will find peace and
+              tranquility while enjoying our traditional Thai cuisine made from the freshest ingredients.
+            </p>
+
+            <p class="mb-0">
+              Jakkrid Laongsuwan, our chef, had been in the restaurant industry for almost 15 years. He had worked as
+              executive chef in many 5 star resorts in Thailand, including the famous Dusit Thani Hotel and Resort in
+              Bangkok, the capital city. Mr. Laongsuwan had spent 10 years perfecting the balance between the color and
+              taste in his creations. His exemplary culinary experience will be sure to take your taste buds on a
+              heavenly ride.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <small>
+      Designed by <a href="https://pantipa.com/" class="text-dark">Pantipa</a><br>
+      © <span id="year"></span> Jakkrid, Inc. All rights reserved.
+    </small>
+  </footer>
+
+  <!-- Mobile Fullscreen Menu Modal -->
+  <div class="modal fade menu-modal" id="mobileMenu" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="menu-links">
+            <a href="https://dositthaica.smiledining.com/" data-bs-dismiss="modal">Order</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html" data-bs-dismiss="modal">About</a>
+            <a href="contact.html" data-bs-dismiss="modal">Contact</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
