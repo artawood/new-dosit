@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery • Dosit Thai Cuisine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --brand-gold:#fcce9c;
+  --brand-brown:#4b2e14;
+}
+
+body{
+  background:#0b0b0b;
+  color:#fff;
+  font-family:"Inter",system-ui,sans-serif;
+  margin:0;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  padding:1rem 0;
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo img{max-width:220px;}
+
+.nav-desktop{
+  gap:2rem;
+}
+
+.nav-desktop .nav-link{
+  font-family:"Inter Tight";
+  color:#fff;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:0;
+  border-bottom:2px solid transparent;
+}
+
+.nav-desktop .nav-link:hover{
+  border-bottom-color:rgba(255,255,255,.6);
+}
+
+/* Mobile toggle */
+.nav-toggle{
+  border:0;
+  background:transparent;
+  color:#fff;
+}
+
+/* Hero */
+.page-hero{
+  text-align:center;
+  padding:3rem 1rem 1.5rem;
+}
+
+.page-hero h1{
+  font-family:"Playfair Display";
+  font-size:clamp(2.5rem,5vw,3.5rem);
+}
+
+.page-hero p{
+  opacity:.8;
+}
+
+/* Full-bleed collage */
+.collage{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-auto-rows:minmax(0.25vh,auto);
+  width:100vw;
+}
+
+.collage-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.tall{grid-row:span 14;}
+.medium{grid-row:span 10;}
+.short{grid-row:span 7;}
+
+/* Fullscreen modal styling */
+    .menu-modal .modal-content{
+      background:#ffffff;
+      border:0;
+      border-radius:0;
+      min-height:100vh;
+    }
+
+    .menu-modal .modal-header{
+      border:0;
+      padding:1.25rem 1.5rem;
+    }
+
+    .menu-modal .btn-close{
+      opacity:1;
+    }
+
+    .menu-modal .modal-title{
+      font-family:"Playfair Display", serif;
+      color:var(--brand-brown);
+      font-weight:700;
+    }
+
+    .menu-modal .modal-body{
+      display:grid;
+      place-items:center;
+      padding:2rem 1.5rem 3rem;
+    }
+
+    .menu-links{
+      width:min(520px, 100%);
+      display:grid;
+      gap:2rem;
+      text-align:center;
+    }
+
+    .menu-links a{
+      font-family:"Inter Tight", system-ui, sans-serif;
+      font-size:1.15rem;
+      text-decoration:none;
+      color:var(--brand-brown);
+      font-weight:600;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      padding:0;
+      background:none;
+      border:0;
+    }
+
+    .menu-links a:hover{
+      background:rgba(75,46,20,.16);
+      transform:translateY(-2px);
+      color:var(--brand-brown);
+    }
+
+    .menu-footnote{
+      margin-top:1.25rem;
+      color:rgba(75,46,20,.75);
+      font-size:.95rem;
+    }
+
+footer{
+  text-align:center;
+  padding:2rem;
+  color:rgba(255,255,255,.6);
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+<div class="container-fluid px-4 d-flex justify-content-between align-items-center">
+  <a href="index.html" class="logo">
+    <img src="images/dosit-logo-white.png">
+  </a>
+
+  <nav class="nav nav-desktop d-none d-md-flex">
+    <a class="nav-link" href="https://dositthaica.smiledining.com/" target="_blank" rel="noopener noreferrer">Order</a>
+    <a class="nav-link active" href="gallery.html">Gallery</a>
+    <a class="nav-link" href="story.html">Story</a>
+    <a class="nav-link" href="contact.html">Contact</a>
+  </nav>
+
+  <button class="nav-toggle d-md-none" data-bs-toggle="modal" data-bs-target="#mobileMenu">
+    ☰
+  </button>
+</div>
+</header>
+
+<section class="collage">
+  <div class="collage-item short"><img src="https://images.pexels.com/photos/19792082/pexels-photo-19792082.jpeg"></div>
+  <div class="collage-item tall"><img src="https://images.pexels.com/photos/34723305/pexels-photo-34723305.jpeg"></div>
+  <div class="collage-item short"><img src="https://images.pexels.com/photos/35049889/pexels-photo-35049889.jpeg"></div>
+  <div class="collage-item medium"><img src="https://images.pexels.com/photos/34699467/pexels-photo-34699467.jpeg"></div>
+  <div class="collage-item tall"><img src="https://images.pexels.com/photos/12100417/pexels-photo-12100417.jpeg"></div>
+  <div class="collage-item medium"><img src="https://images.pexels.com/photos/20187175/pexels-photo-20187175.jpeg"></div>
+  <div class="collage-item tall"><img src="https://images.pexels.com/photos/31653130/pexels-photo-31653130.jpeg"></div>
+  <div class="collage-item short"><img src="https://images.pexels.com/photos/35063430/pexels-photo-35063430.jpeg"></div>
+</section>
+
+<footer>
+<small>© <span id="year"></span> Dosit Thai Cuisine</small>
+</footer>
+
+<!-- Mobile Fullscreen Menu Modal -->
+  <div class="modal fade menu-modal" id="mobileMenu" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="menu-links">
+            <a href="https://dositthaica.smiledining.com/" data-bs-dismiss="modal">Order</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="story.html" data-bs-dismiss="modal">Story</a>
+            <a href="contact.html" data-bs-dismiss="modal">Contact</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
